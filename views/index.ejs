@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Shorter Url</h1>
+    <form action="/shortUrl" method="post">
+      <label for="fullUrl">Url</label>
+      <input type="url" name="fullUrl" id="fullUrl">
+      <button type="submit" name="button">Prova</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Full Url</th>
+          <th>Short Url</th>
+          <th>Clicks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% shortUrls.forEach(shortUrl=>{ %>
+          <tr>
+            <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+            <td><a href="<%= shortUrl.short %>">http://localhost:3000/<%= shortUrl.short %></a></td>
+            <td><%= shortUrl.clicks %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
